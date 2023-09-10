@@ -43,7 +43,7 @@ const Registration = ({ navigation }) => {
   ]
 
   useEffect(() => {
-    navigation.addListener('blur', () => console.log('screen out'))
+    navigation.addListener('blur', () => setFormData({}))
     navigation.addListener('focus', () => console.log('screen In'))
   }, [navigation])
 
@@ -77,6 +77,7 @@ const Registration = ({ navigation }) => {
                 onChangeText={(value) => handleChange(name, value)}
                 placeholder={placeholder}
                 placeholderTextColor={'black'}
+                secureTextEntry={name === 'password' ? true : false}
               />
             </View>
           ))}

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 // import Icon from 'react-native-vector-icons/Ionicons'
 
 const CheckBox = ({ task }) => {
-  console.log(task, 'task')
+  // console.log(task, 'task')
   const [isChecked, setIsChecked] = useState(false)
 
   const handleToggle = () => {

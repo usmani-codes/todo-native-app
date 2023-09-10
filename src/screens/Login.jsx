@@ -42,6 +42,12 @@ const Login = ({ navigation }) => {
       return Alert.alert('please fill all the Fields')
     }
 
+    if (!users.leng > 0) {
+      Alert.alert('please Sign Up first')
+      navigation.navigate('registration')
+      return
+    }
+
     const registeredUser = users.find((user) => {
       if (!user.email === email || !user.password === password) {
         return Alert.alert('email or password not matched ')
@@ -49,8 +55,9 @@ const Login = ({ navigation }) => {
         return user.email === email && user.password === password
       }
     })
+
+    console.log(registeredUser)
     if (registeredUser) {
-      console.log('registered true', users)
       navigation.navigate('dashboard')
     }
   }
@@ -72,6 +79,7 @@ const Login = ({ navigation }) => {
                 onChangeText={(value) => handleChange(name, value)}
                 placeholder={placeholder}
                 placeholderTextColor={'black'}
+                secureTextEntry={name === 'password' ? true : false}
               />
             </View>
           ))}
